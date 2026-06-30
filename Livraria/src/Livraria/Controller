@@ -1,0 +1,79 @@
+package controller;
+
+import java.util.ArrayList;
+
+import model.Produto;
+import repository.Repository;
+
+public class Controller implements Repository {
+
+    private ArrayList<Produto> produtos = new ArrayList<Produto>();
+    private int id = 0;
+
+    public int gerarId() {
+        return ++id;
+    }
+
+    @Override
+    public void listarTodos() {
+        if (produtos.isEmpty()) {
+            System.out.println("A lista de produtos está vazia.");
+            return;
+        }
+        
+        for (Produto p : produtos) {
+           
+            p.visualizar(); 
+          
+        }
+    }
+		
+		
+    @Override
+    public void buscarPorId(int id) {
+        for (Produto p : produtos) {
+            if (p.getId() == id) {
+                p.visualizar(); // 
+                return; 
+            }
+        }
+        System.out.println("Produto com o ID " + id + " não foi encontrado.");
+  
+		
+	}
+
+	@Override
+	public void cadastrar(Produto produto) {
+	    produto.setId(this.gerarId()); 
+	    produtos.add(produto);
+	    System.out.println("Produto cadastrado com sucesso! ID: " + produto.getId());
+	}
+		
+		
+	@Override
+	public void atualizar(Produto produto) {
+	    for (int i = 0; i < produtos.size(); i++) {
+	        if (produtos.get(i).getId() == produto.getId()) {
+	            produtos.set(i, produto); 
+	            System.out.println("Produto atualizado com sucesso!");
+	            return;
+	        }
+	    }
+	    System.out.println("Produto com o ID " + produto.getId() + " não foi encontrado para atualização.");
+		
+		
+	}
+
+	@Override
+	public void deletar(int id) {
+	    for (Produto p : produtos) {
+	        if (p.getId() == id) {
+	            produtos.remove(p);
+	            System.out.println("Produto com o ID " + id + " foi deletado com sucesso!");
+	            return;
+	        }
+	    }
+	    System.out.println("Produto com o ID " + id + " não foi encontrado.");
+		
+		
+	}
