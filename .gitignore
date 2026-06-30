@@ -1,0 +1,20 @@
+.metadata bin/ tmp/ *.tmp *.bak *.swp *~.nib local.properties .settings/ .loadpath 
+.recommenders
+ 
+# External tool buildersnalToolBuilders/ed "Eclipse launch configurations" yDev specific 
+(Python IDE for Eclipse) *.pydevproject
+ 
+# CDT-specific (C/C++ Development Tooling) roject
+ 
+# CDT- autotools rocessor (APT) .factorypath
+ 
+# PDT-specific (PHP Development Tools) ath
+ 
+# sbteclipse plugingetn pluginn-project se plugin .texlipse
+ 
+# STS (Spring Tool Suite) ringBeans
+ # Code Recommendersecommenders/ rocessing .apt_generated/ .apt_generated_test/
+
+# Scala IDE specific (Scala & Java development for Eclipse) .cache-main 
+.scala_dependencies
+.workshee
